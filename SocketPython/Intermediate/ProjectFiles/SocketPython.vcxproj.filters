@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\SocketPython.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SocketPython.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\SocketPythonEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\SocketPython">
+      <UniqueIdentifier>{34615C7A-40D2-3DDA-B48E-7EC5C8932D50}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SocketPython\SocketPython.Build.cs">
+      <Filter>Source\SocketPython</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\SocketPython\SocketPython.cpp">
+      <Filter>Source\SocketPython</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\SocketPython.h">
+      <Filter>Source\SocketPython</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\SocketPythonCharacter.cpp">
+      <Filter>Source\SocketPython</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\SocketPythonCharacter.h">
+      <Filter>Source\SocketPython</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\SocketPythonGameMode.cpp">
+      <Filter>Source\SocketPython</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\SocketPythonGameMode.h">
+      <Filter>Source\SocketPython</Filter>
+    </ClCompile>
+    <Filter Include="Source\SocketPython\Private">
+      <UniqueIdentifier>{176DDDEC-8A8B-3259-9FB7-BEB38EE0B59B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SocketPython\Private\BackBuffer.cpp">
+      <Filter>Source\SocketPython\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\Private\MultipleCameraStreamer.cpp">
+      <Filter>Source\SocketPython\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\Private\OneCameraStreamer.cpp">
+      <Filter>Source\SocketPython\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\Private\TCPConnection.cpp">
+      <Filter>Source\SocketPython\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\Private\TCPServer.cpp">
+      <Filter>Source\SocketPython\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\SocketPython\Public">
+      <UniqueIdentifier>{7F7574E8-FFB5-3920-AFB6-4854BCF95895}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SocketPython\Public\BackBuffer.h">
+      <Filter>Source\SocketPython\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\Public\MultipleCameraStreamer.h">
+      <Filter>Source\SocketPython\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\Public\OneCameraStreamer.h">
+      <Filter>Source\SocketPython\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\Public\TCPConnection.h">
+      <Filter>Source\SocketPython\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SocketPython\Public\TCPServer.h">
+      <Filter>Source\SocketPython\Public</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

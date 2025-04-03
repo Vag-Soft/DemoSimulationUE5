@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\socketpython\\permoduleinline.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\x64\\socketpythoneditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\socketpython\\definitions.socketpython.h",
+            "e:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

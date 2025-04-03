@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "SocketPython",
+			"Path": "..\\Source\\SocketPython.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "SocketPythonEditor",
+			"Path": "..\\Source\\SocketPythonEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-SocketPython-5363.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\SocketPythonEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\BackBuffer.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\MultipleCameraStreamer.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\OneCameraStreamer.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\SocketPython.init.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\SocketPythonCharacter.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\SocketPythonGameMode.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\TCPConnection.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\TCPServer.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\SocketPython.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\SocketPythonCharacter.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\SocketPythonGameMode.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\BackBuffer.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\MultipleCameraStreamer.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\OneCameraStreamer.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\TCPConnection.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\TCPServer.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\PerModuleInline.gen.cpp.obj"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\Default.rc2.res"
+/OUT:"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\UnrealEditor-SocketPython-5363.lib"
