@@ -1,12 +1,12 @@
-"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\UnrealEditor\Inc\SocketPython\UHT\OneCameraStreamer.gen.cpp"
-/FI"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\SocketPythonEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\Definitions.SocketPython.h"
-/Yu"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\SocketPythonEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\SocketPythonEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\OneCameraStreamer.gen.cpp.obj"
-/experimental:log "E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\OneCameraStreamer.gen.cpp.sarif"
-/sourceDependencies "E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\OneCameraStreamer.gen.cpp.dep.json"
-@"E:\Vag\Programs\UnrealEngine\UE 5.5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\SocketPython.Shared.rsp"
+"E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\UnrealEditor\Inc\SocketPython\UHT\OneCameraStreamer.gen.cpp"
+/FI"E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\x64\SocketPythonEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\Definitions.SocketPython.h"
+/Yu"E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\x64\SocketPythonEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\x64\SocketPythonEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\OneCameraStreamer.gen.cpp.obj"
+/experimental:log "E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\OneCameraStreamer.gen.cpp.sarif"
+/sourceDependencies "E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\OneCameraStreamer.gen.cpp.dep.json"
+@"E:\Vag\Programs\UnrealEngine\UE 5.5\DemoSimulationUE5\SocketPython\Intermediate\Build\Win64\x64\UnrealEditor\Development\SocketPython\SocketPython.Shared.rsp"
 /d2ssa-cfg-question-
 /Zc:inline
 /nologo

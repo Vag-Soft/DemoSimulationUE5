@@ -22,9 +22,9 @@ AMultipleCameraStreamer::AMultipleCameraStreamer()
     ServerSocket = nullptr;
     TCPListener = nullptr;
 
-
-	Width = 1000;
-	Height = 1000;
+	// Setting the resolution of the render targets
+	Width = 500;
+	Height = 500;
 
     MeshComps = TArray<USkeletalMeshComponent*>();
 
@@ -38,9 +38,9 @@ void AMultipleCameraStreamer::BeginPlay()
 
     // Starting the TCP server
     StartTCPServer();
-
+	// Storing the render targets
     AttachRenderTarget();
-
+	// Storing the mesh components from all characters
     AttachMeshComps();
 	
 }
@@ -59,11 +59,13 @@ void AMultipleCameraStreamer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+    // Polling the socket for new data
     if (ServerSocket)
     {
         PollSocket();
     }
 
+    // Making render requests
     if (streaming)
     {
         for (int i = 0; i < RenderTargets.Num(); i++)
@@ -74,13 +76,13 @@ void AMultipleCameraStreamer::Tick(float DeltaTime)
 
 
 
+    // Sending the completed render requests to python
     while (!RenderRequestQueue.IsEmpty()) {
 
-        // Peek the next RenderRequest from queue
         FRenderRequest2* nextRenderRequest = nullptr;
         RenderRequestQueue.Peek(nextRenderRequest);
 
-        if (nextRenderRequest) { //nullptr check
+        if (nextRenderRequest) { 
 
             if (nextRenderRequest->RenderFence.IsFenceComplete()) {
 
@@ -91,7 +93,6 @@ void AMultipleCameraStreamer::Tick(float DeltaTime)
 
                 RunAsyncSendData(ServerSocket, nextRenderRequest->Image, nextRenderRequest->cameraIndex, Width, Height, MeshComps);
 
-                // Delete the first element from RenderQueue
                 RenderRequestQueue.Pop();
                 delete nextRenderRequest;
 
@@ -189,7 +190,6 @@ void AMultipleCameraStreamer::PollSocket()
 // Handling the received request
 void AMultipleCameraStreamer::HandleRequest(FString Request)
 {
-    // Sending all the cameras' viewpoints as images to the client
     if (Request == "images")
     {
         streaming = true;
@@ -232,7 +232,7 @@ void AMultipleCameraStreamer::AttachRenderTarget()
 
 void AMultipleCameraStreamer::AttachMeshComps()
 {
-
+    // Get all characters in the scene
     UWorld* World = GetWorld();
     TArray<AActor*> AllCharacters = TArray<AActor*>();
     UGameplayStatics::GetAllActorsOfClass(World, ACharacter::StaticClass(), AllCharacters);
@@ -259,6 +259,7 @@ void AMultipleCameraStreamer::SendRenderRequest(UTextureRenderTarget2D* RenderTa
     };
 
 
+    // Creating a new render request
     FRenderRequest2* renderRequest = new FRenderRequest2();
     renderRequest->cameraIndex = camIndex;
 
@@ -285,11 +286,11 @@ void AMultipleCameraStreamer::SendRenderRequest(UTextureRenderTarget2D* RenderTa
     renderRequest->RenderFence.BeginFence();
 }
 
+// Converting the transform to a byte array
 TArray<uint8> ConvertTransformToBytes1(const FTransform& Transform, int32 BoneIndex)
 {
     TArray<uint8> Bytes;
 
-    // Append Bone Index (int32 -> 4 bytes)
     Bytes.Append(reinterpret_cast<uint8*>(&BoneIndex), sizeof(int32));
 
 

@@ -1,11 +1,11 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\unrealeditor\\inc\\socketpython\\uht\\socketpython.init.gen.cpp",
+        "Source": "e:\\vag\\programs\\unrealengine\\ue 5.5\\demosimulationue5\\socketpython\\intermediate\\build\\win64\\unrealeditor\\inc\\socketpython\\uht\\socketpython.init.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\x64\\socketpythoneditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "e:\\vag\\programs\\unrealengine\\ue 5.5\\demosimulationue5\\socketpython\\intermediate\\build\\win64\\x64\\socketpythoneditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\socketpython\\definitions.socketpython.h"
+            "e:\\vag\\programs\\unrealengine\\ue 5.5\\demosimulationue5\\socketpython\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\socketpython\\definitions.socketpython.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

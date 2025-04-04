@@ -14,14 +14,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SOCKETPYTHON_BackBuffer_generated_h
 
-#define FID_Vag_Programs_UnrealEngine_UE_5_5_SocketPython_Source_SocketPython_Public_BackBuffer_h_17_GENERATED_BODY \
+#define FID_Vag_Programs_UnrealEngine_UE_5_5_DemoSimulationUE5_SocketPython_Source_SocketPython_Public_BackBuffer_h_17_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FRenderRequest1_Statics; \
 	SOCKETPYTHON_API static class UScriptStruct* StaticStruct();
 
 
 template<> SOCKETPYTHON_API UScriptStruct* StaticStruct<struct FRenderRequest1>();
 
-#define FID_Vag_Programs_UnrealEngine_UE_5_5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_INCLASS_NO_PURE_DECLS \
+#define FID_Vag_Programs_UnrealEngine_UE_5_5_DemoSimulationUE5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABackBuffer(); \
 	friend struct Z_Construct_UClass_ABackBuffer_Statics; \
@@ -30,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(ABackBuffer)
 
 
-#define FID_Vag_Programs_UnrealEngine_UE_5_5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_ENHANCED_CONSTRUCTORS \
+#define FID_Vag_Programs_UnrealEngine_UE_5_5_DemoSimulationUE5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ABackBuffer(ABackBuffer&&); \
@@ -42,12 +42,12 @@ public: \
 	NO_API virtual ~ABackBuffer();
 
 
-#define FID_Vag_Programs_UnrealEngine_UE_5_5_SocketPython_Source_SocketPython_Public_BackBuffer_h_29_PROLOG
-#define FID_Vag_Programs_UnrealEngine_UE_5_5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_GENERATED_BODY \
+#define FID_Vag_Programs_UnrealEngine_UE_5_5_DemoSimulationUE5_SocketPython_Source_SocketPython_Public_BackBuffer_h_29_PROLOG
+#define FID_Vag_Programs_UnrealEngine_UE_5_5_DemoSimulationUE5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Vag_Programs_UnrealEngine_UE_5_5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_INCLASS_NO_PURE_DECLS \
-	FID_Vag_Programs_UnrealEngine_UE_5_5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_ENHANCED_CONSTRUCTORS \
+	FID_Vag_Programs_UnrealEngine_UE_5_5_DemoSimulationUE5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_INCLASS_NO_PURE_DECLS \
+	FID_Vag_Programs_UnrealEngine_UE_5_5_DemoSimulationUE5_SocketPython_Source_SocketPython_Public_BackBuffer_h_32_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -55,7 +55,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SOCKETPYTHON_API UClass* StaticClass<class ABackBuffer>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Vag_Programs_UnrealEngine_UE_5_5_SocketPython_Source_SocketPython_Public_BackBuffer_h
+#define CURRENT_FILE_ID FID_Vag_Programs_UnrealEngine_UE_5_5_DemoSimulationUE5_SocketPython_Source_SocketPython_Public_BackBuffer_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -1,12 +1,12 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\unrealeditor\\inc\\socketpython\\uht\\onecamerastreamer.gen.cpp",
+        "Source": "e:\\vag\\programs\\unrealengine\\ue 5.5\\demosimulationue5\\socketpython\\intermediate\\build\\win64\\unrealeditor\\inc\\socketpython\\uht\\onecamerastreamer.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\x64\\socketpythoneditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "e:\\vag\\programs\\unrealengine\\ue 5.5\\demosimulationue5\\socketpython\\intermediate\\build\\win64\\x64\\socketpythoneditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\socketpython\\definitions.socketpython.h",
-            "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\source\\socketpython\\public\\onecamerastreamer.h",
+            "e:\\vag\\programs\\unrealengine\\ue 5.5\\demosimulationue5\\socketpython\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\socketpython\\definitions.socketpython.h",
+            "e:\\vag\\programs\\unrealengine\\ue 5.5\\demosimulationue5\\socketpython\\source\\socketpython\\public\\onecamerastreamer.h",
             "e:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\networking\\public\\networking.h",
             "e:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\monolithicheaderboilerplate.h",
             "e:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\core.h",
@@ -82,7 +82,7 @@
             "e:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\components\\scenecapturecomponent.h",
             "e:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\scenecapturecomponent.generated.h",
             "e:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\scenecapturecomponent2d.generated.h",
-            "e:\\vag\\programs\\unrealengine\\ue 5.5\\socketpython\\intermediate\\build\\win64\\unrealeditor\\inc\\socketpython\\uht\\onecamerastreamer.generated.h"
+            "e:\\vag\\programs\\unrealengine\\ue 5.5\\demosimulationue5\\socketpython\\intermediate\\build\\win64\\unrealeditor\\inc\\socketpython\\uht\\onecamerastreamer.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

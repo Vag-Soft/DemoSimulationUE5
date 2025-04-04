@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"E:\\Vag\\Programs\\UnrealEngine\\UE 5.5\\SocketPython\\Source\\SocketPython\\SocketPython.Build.cs",
-		"E:\\Vag\\Programs\\UnrealEngine\\UE 5.5\\SocketPython\\Source\\SocketPython.Target.cs",
-		"E:\\Vag\\Programs\\UnrealEngine\\UE 5.5\\SocketPython\\Source\\SocketPythonEditor.Target.cs"
+		"E:\\Vag\\Programs\\UnrealEngine\\UE 5.5\\DemoSimulationUE5\\SocketPython\\Source\\SocketPython\\SocketPython.Build.cs",
+		"E:\\Vag\\Programs\\UnrealEngine\\UE 5.5\\DemoSimulationUE5\\SocketPython\\Source\\SocketPython.Target.cs",
+		"E:\\Vag\\Programs\\UnrealEngine\\UE 5.5\\DemoSimulationUE5\\SocketPython\\Source\\SocketPythonEditor.Target.cs"
 	],
 	"EngineVersion": "5.5.3"
 }
