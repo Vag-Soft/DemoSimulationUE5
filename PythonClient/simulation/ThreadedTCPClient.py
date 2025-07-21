@@ -82,9 +82,11 @@ def receive_image(socket):
 
 def receive_skeletons(socket):
     # Receive the camera position (24 bytes for double x, y, z)
-    camera_position_data = socket.recv(24)
-    cam_x, cam_y, cam_z = struct.unpack("d d d", camera_position_data)
+    # camera_position_data = socket.recv(24)
+    # cam_x, cam_y, cam_z = struct.unpack("d d d", camera_position_data)
     # print(f"Camera position: ({cam_x}, {cam_y}, {cam_z})")
+
+    cam_x, cam_y, cam_z = 0.0, 0.0, 0.0  # Default values if not received
 
     # Receive the number of skeletons (4 bytes)
     num_skeletons_data = socket.recv(4)
@@ -114,25 +116,26 @@ def receive_skeletons(socket):
             # Unpack: int32 + 3 floats (FVector) + 4 floats (FQuat)
             bone_index, px, py, pz, qx, qy, qz, qw = struct.unpack("i f f f f f f f", data)
 
-            character_transforms[skeleton_idx, bone_index] = [px - cam_x, pz - cam_z, py - cam_y]
+            character_transforms[skeleton_idx, bone_index] = [px - cam_x, py - cam_y, pz - cam_z]
 
     return character_transforms
 
 def process_bones(character_transforms):
     # Define the remapping of bone IDs
     new_idxs = {9: 0,
-                11: 1,
-                38: 2,
-                12: 3,
-                39: 4,
-                15: 5,
-                42: 6,
-                72: 7,
-                64: 8,
-                73: 9,
-                65: 10,
-                74: 11,
-                66: 12}
+                38: 1,
+                11: 2,
+                39: 3,
+                12: 4,
+                42: 5,
+                15: 6,
+                64: 7,
+                72: 8,
+                65: 9,
+                73: 10,
+                66: 11,
+                74: 12}
+    return character_transforms[:, list(new_idxs.keys())]
 
     # Initialize a NumPy array for the processed skeletons
     num_skeletons, num_bones, _ = character_transforms.shape

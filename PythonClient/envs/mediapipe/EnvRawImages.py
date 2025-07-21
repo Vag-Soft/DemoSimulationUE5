@@ -4,8 +4,8 @@ import gymnasium as gym
 import open3d as o3d
 import numpy as np
 from gymnasium import spaces
-import PoseEstimation as pe
-from simulation.ThreadedTCPClient import ThreadedTCPClient
+from PythonClient.pose_estimation.mediapipe import mediapipe as pe
+from PythonClient.simulation.ThreadedTCPClient import ThreadedTCPClient
 
 """
 This environment connects to a simulation via ThreadedTCPClient that provides camera images

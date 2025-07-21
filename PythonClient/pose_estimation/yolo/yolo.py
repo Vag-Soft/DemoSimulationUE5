@@ -1,6 +1,4 @@
 import cv2
-import numpy as np
-import torch
 from ultralytics import YOLO
 
 
@@ -8,50 +6,45 @@ from ultralytics import YOLO
 # providers = ["CPUExecutionProvider"] ->
 # providers = ['DmlExecutionProvider', "CPUExecutionProvider"]
 
-# Load a model
-model = YOLO("yolo11x-pose.onnx")
-# Predict with the model
-image_path = "bus.jpg"
-image = cv2.imread(image_path)
-
-# Predict with the model
-results = model(image)  # predict on an image
-
-# Draw keypoints on the image
-for result in results:
-    xy = result.keypoints.xy  # x and y coordinates
-    xyn = result.keypoints.xyn  # normalized
-    kpts = result.keypoints.data  # x, y, visibility (if available)
-
-    for p in xy:
-        for l in p:
-            x = int(l[0].item())
-            y = int(l[1].item())
-            cv2.circle(image, (x, y), 5, (255, 0, 0), -1)
-
-# Display the image with keypoints
-cv2.imshow("Pose Estimation", image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-# Optionally save the result
-cv2.imwrite("pose_result1.jpg", image)
-
 
 class YoloPoseEstimator:
-    def __init__(self, model_path="yolo11x-pose.onnx"):
-        self.model = YOLO(model_path)
+    def __init__(self, model_path="nano" , width=500, height=500):
+        models = {
+            "nano": "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/pose_estimation/yolo/yolo11n-pose.onnx",
+            "small": "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/pose_estimation/yolo/yolo11s-pose.onnx",
+            "medium": "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/pose_estimation/yolo/yolo11m-pose.onnx",
+            "large": "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/pose_estimation/yolo/yolo11l-pose.onnx",
+            "xlarge": "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/pose_estimation/yolo/yolo11x-pose.onnx",
+        }
+        self.model = YOLO(models[model_path])
+        self.width = width
+        self.height = height
 
-    def estimate_pose(self, image):
-        results = self.model(image)
-        return results
+    def estimate_pose(self, frame):
+        frame = cv2.resize(frame, (256, 256))
+        results = self.model.predict(source=frame, show=False, verbose=False)
+        if not results[0].keypoints or len(results) == 0:
+            return None
+        return results[0]
 
-    def draw_keypoints(self, image, results):
-        for result in results:
-            xy = result.keypoints.xy  # x and y coordinates
-            for p in xy:
-                for l in p:
-                    x = int(l[0].item())
-                    y = int(l[1].item())
-                    cv2.circle(image, (x, y), 5, (255, 0, 0), -1)
-        return image
+    def process_results(self, results):
+        new_ids = {
+            0: 0,
+            6: 1,
+            5: 2,
+            8: 3,
+            7: 4,
+            10: 5,
+            9: 6,
+            12: 7,
+            11: 8,
+            14: 9,
+            13: 10,
+            16: 11,
+            15: 12
+        }
+
+        keypoints = results.keypoints.numpy().xyn[:, list(new_ids.keys())]
+        confidences = results.keypoints.numpy().conf[:, list(new_ids.keys())]
+
+        return keypoints, confidences

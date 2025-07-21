@@ -3,79 +3,75 @@ from typing import Optional
 import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
-import PoseEstimation as pe
-from simulation.FakeThreadedTCPClient import FakeThreadedTCPClient
-from simulation.ThreadedTCPClient import ThreadedTCPClient
-
+from PythonClient.pose_estimation.mediapipe import mediapipe as pe
+from PythonClient.simulation.FakeThreadedTCPClient import FakeThreadedTCPClient
 
 '''
 Features:
-- Uses MediaPipe for 3D pose estimation from camera images
-- Connects to simulation via TCP to receive camera feeds and ground truth 3D skeleton data
-- Processes and compares estimated joint positions against ground truth in 3D space
+- Connects to a simulation via TCP to receive camera images and ground-truth 3D skeleton data
+- Uses MediaPipe for pose estimation to extract joint positions and confidence scores
+- Trains an agent to select optimal camera views based on pose quality
 - Supports both real and simulated data sources through ThreadedTCPClient/FakeThreadedTCPClient
 
 Observation Space:
-- Shape: (history_count, cam_count, 14), dtype=float32
-- Each camera provides 13 joint confidence scores (0-1) from MediaPipe and 1 camera selection flag (0/1)
-- Maintains temporal history of states, where only the selected camera contains information
+- Shape: (cam_count, 14), dtype=np.float32
+- Each camera provides 13 joint confidence scores (0-1) and 1 camera selection flag
 
 Action Space:
 - Discrete(cam_count): Agent selects which camera to process at each step
 
 Reward Function:
-- Based on accuracy of pose estimation: reward = 1 - MSE(predicted_skeleton, ground_truth_skeleton)
-- Returns -1 if pose estimation fails for the selected view
+- Based on Mean Squared Error (MSE) between MediaPipe-predicted joint positions
+  and simulation ground-truth 3D skeleton positions
+- Higher reward (closer to 1) for more accurate pose estimation
 
+Processing Pipeline:
+1. Agent selects a camera 
+2. Receives image from selected camera
+3. MediaPipe processes image to extract pose landmarks
+4. Environment calculates reward by comparing predicted pose to ground truth
+5. Updates observation with new confidence scores and camera selection state
 '''
 class Env(gym.Env):
-    def __init__(self, width, height, cam_count, history_count=10, mode="train"):
+    def __init__(self, width, height, cam_count, mode="train"):
         super().__init__()
 
         self.mode = mode
+        self.current_camera = None
+        self.current_obs = np.zeros((cam_count, 14), dtype=np.float32)
+        self.current_skeletons = np.zeros((cam_count, 13, 3), dtype=np.float32)
+
         self.width = width
         self.height = height
         self.cam_count = cam_count
-        self.history_count = history_count
-
-        self.current_camera = None
-        self.current_obs = np.zeros((history_count, cam_count, 14), dtype=np.float32)
-        self.current_skeletons = np.zeros((cam_count, 13, 3), dtype=np.float32)
 
         self.action_space = spaces.Discrete(cam_count)
-        self.observation_space = spaces.Box(low=0, high=1, shape=(history_count, cam_count, 14), dtype=np.float32)
+        self.observation_space = spaces.Box(low=0, high=1, shape=(cam_count, 14), dtype=np.float32)
 
         # self.client = ThreadedTCPClient(cam_count=cam_count)
         self.client = FakeThreadedTCPClient(cam_count=cam_count, mode=self.mode)
         self.client.start()
-
-        self.current_predicted_skeletons = np.zeros((13, 3), dtype=np.float32)
 
     def reset(self, seed: Optional[int] = None, options: Optional[dict] = None):
         super().reset(seed=seed)
 
         self.current_camera = self.action_space.sample()
 
-        for j in range(self.history_count):
-            for i in range(self.cam_count):
-                while True:
-                    image, skeletons = self.client.get_latest_data(i)
-                    if image is not None and skeletons is not None:
-                        # self.current_obs[j][i] = np.random.uniform(0, 1, size=(14,))
-                        # self.current_obs[j][i][13] = i == self.current_camera
-                        self.current_obs[j][i] = np.zeros(14, dtype=np.float32)
-                        self.current_skeletons[i] = skeletons
-                        break
-                    # else:
-                    # print(f"No data received from client for camera {i}")
+        for i in range(self.cam_count):
+            while True:
+                image, skeletons = self.client.get_latest_data(i)
+                if image is not None and skeletons is not None:
+                    self.current_obs[i] = np.random.uniform(0, 1, size=(14,))
+                    self.current_obs[i][13] = i == self.current_camera
+                    self.current_skeletons[i] = skeletons
+                    break
+                # else:
+                # print(f"No data received from client for camera {i}")
 
         info = {}
         return self.current_obs, info
 
     def step(self, action):
-        for i in range(self.history_count - 1):
-            self.current_obs[i] = self.current_obs[i + 1].copy()
-
         self.current_camera = action
 
         while True:
@@ -83,15 +79,11 @@ class Env(gym.Env):
             if image is not None and truth_skeletons is not None:
                 predicted_skeletons, visibilities = self.get_processed_pose(image)
 
-                self.current_predicted_skeletons = predicted_skeletons
-
-                # Remove the last confidence scores and add the new ones
-                self.current_obs[self.history_count-1] = np.zeros((self.cam_count, 14), dtype=np.float32)
-                self.current_obs[self.history_count-1][self.current_camera] = np.append(self.get_confidence_scores(visibilities), 1)
+                self.current_obs[self.current_camera] = np.append(self.get_confidence_scores(visibilities), 1)
                 self.current_skeletons[self.current_camera] = truth_skeletons
 
                 for i in range(self.cam_count):
-                    self.current_obs[self.history_count-1][i][13] = i == self.current_camera
+                    self.current_obs[i][13] = i == self.current_camera
 
                 reward = self.calculate_reward(predicted_skeletons)
 

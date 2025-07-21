@@ -152,8 +152,28 @@ bool AMultipleCameraStreamer::HandleConnection(FSocket* Socket, const FIPv4Endpo
     int32 BytesSent;
 
     ServerSocket = Socket;
-    ServerSocket->Send((uint8*)Convert.Get(), Convert.Length(), BytesSent);
+    //ServerSocket->Send((uint8*)Convert.Get(), Convert.Length(), BytesSent);
     ServerSocket->SetNonBlocking(true);
+
+	for (int32 i = 0; i < AllCameras.Num(); i++)
+	{
+        int32 cameraIndex = i;
+        ServerSocket->Send((uint8*)&cameraIndex, sizeof(int32), BytesSent);
+
+        double locX = AllCameras[i]->GetActorLocation().X;
+        double locY = AllCameras[i]->GetActorLocation().Y;
+        double locZ = AllCameras[i]->GetActorLocation().Z;
+        ServerSocket->Send((uint8*)&locX, sizeof(double), BytesSent);
+        ServerSocket->Send((uint8*)&locY, sizeof(double), BytesSent);
+        ServerSocket->Send((uint8*)&locZ, sizeof(double), BytesSent);
+
+        double pitch = AllCameras[i]->GetActorRotation().Pitch;
+        double yaw = AllCameras[i]->GetActorRotation().Yaw;
+        double roll = AllCameras[i]->GetActorRotation().Roll;
+        ServerSocket->Send((uint8*)&pitch, sizeof(double), BytesSent);
+        ServerSocket->Send((uint8*)&yaw, sizeof(double), BytesSent);
+        ServerSocket->Send((uint8*)&roll, sizeof(double), BytesSent);
+	}
 
     return true;
 }
@@ -199,7 +219,7 @@ void AMultipleCameraStreamer::HandleRequest(FString Request)
 void AMultipleCameraStreamer::AttachRenderTarget()
 {
     UWorld* World = GetWorld();
-    TArray<AActor*> AllCameras = TArray<AActor*>();
+    this->AllCameras = TArray<AActor*>();
     UGameplayStatics::GetAllActorsOfClass(World, ASceneCapture2D::StaticClass(), AllCameras);
     for (AActor* Actor : AllCameras)
     {

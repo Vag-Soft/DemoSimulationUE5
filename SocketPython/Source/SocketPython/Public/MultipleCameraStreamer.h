@@ -71,7 +71,7 @@ public:
 
 	TArray<USkeletalMeshComponent*> MeshComps;
 	TArray<UTextureRenderTarget2D*> RenderTargets;
-
+	TArray<AActor*> AllCameras;
 
 };
 

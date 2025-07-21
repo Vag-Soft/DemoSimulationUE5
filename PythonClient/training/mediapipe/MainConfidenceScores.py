@@ -1,11 +1,12 @@
 import os
 
+import cv2
 import open3d as o3d
 
 import numpy as np
 from stable_baselines3 import A2C
 
-from EnvConfidenceScoresV3 import Env
+from PythonClient.envs.mediapipe.EnvConfidenceScoresV3 import Env
 
 
 def draw_skeleton_open3d(multiple_skeletons, vis):
@@ -47,8 +48,8 @@ if __name__ == "__main__":
     #     # print(f"Reward: {reward}, Info: {info}")
 
 
-    # models_dir = f"models/A2C-{int(time.time())}"
-    # logdir = f"logs/A2C-{int(time.time())}"
+    # models_dir = f"../models/A2C-{int(time.time())}"
+    # logdir = f"../logs/A2C-{int(time.time())}"
     #
     # if not os.path.exists(models_dir):
     #     os.makedirs(models_dir)
@@ -71,7 +72,7 @@ if __name__ == "__main__":
     # model.learn(total_timesteps=100000, progress_bar=True, callback=checkpoint_callback)
 
 
-    for name in os.listdir("../models/V3_3C_10S_13L_A2C_100000_VIDEO"):
+    for name in os.listdir("../../models/mediapipe/V3_3C_10S_13L_A2C_100000_VIDEO"):
 
         env = Env(width=500, height=500, cam_count=3, mode="test", history_count=10)
         obs, inf = env.reset()
@@ -83,16 +84,16 @@ if __name__ == "__main__":
         # vis1 = o3d.visualization.Visualizer()
         # vis1.create_window(window_name="Truth", width=400, height=300)
 
-        print(f"models/V3_3C_10S_13L_A2C_100000_VIDEO/" + name[:-4])
-        model.load(f"models/V3_3C_10S_13L_A2C_100000_VIDEO/" + name[:-4])
+        print(f"../models/V3_3C_10S_13L_A2C_100000_VIDEO/" + name[:-4])
+        model.load(f"../models/V3_3C_10S_13L_A2C_100000_VIDEO/" + name[:-4])
 
         rewards = []
         for i in range(1000):
-            # for id in range(env.cam_count):
-            #     image, skeletons = env.client.get_latest_data(id)
-            #     if image is not None and skeletons is not None:
-            #         cv2.imshow('Image' + str(id), image)
-            #         cv2.waitKey(1)
+            for id in range(env.cam_count):
+                image, skeletons = env.client.get_latest_data(id)
+                if image is not None and skeletons is not None:
+                    cv2.imshow('Image' + str(id), image)
+                    cv2.waitKey(1)
             action, _ = model.predict(obs, deterministic=True)
             obs, reward, terminated, truncated, info = env.step(action)
             rewards.append(reward)
@@ -116,7 +117,7 @@ if __name__ == "__main__":
     # # vis1 = o3d.visualization.Visualizer()
     # # vis1.create_window(window_name="Truth", width=400, height=300)
     #
-    # model.load("models/V3_3C_10S_13L_A2C_100000_VIDEO/A2C_model_90000_steps")
+    # model.load("../models/V3_3C_10S_13L_A2C_100000_VIDEO/A2C_model_90000_steps")
     #
     # rewards = []
     # for i in range(10000):

@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 
 import open3d as o3d
-from mediapipe import PoseEstimation as pe
+from PythonClient.pose_estimation.mediapipe import mediapipe as pe
 
 
 def main():

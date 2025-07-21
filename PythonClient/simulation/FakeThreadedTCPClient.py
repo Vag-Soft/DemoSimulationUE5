@@ -10,7 +10,7 @@ class FakeThreadedTCPClient:
         self.running = False
 
         self.mode = mode
-        self.data_path = "train_data" if mode == "train" else "test_data"
+        self.data_path = "../train_data_2people" if mode == "train" else "../test_data_2people"
         self.sample_count = len(os.listdir(f"{self.data_path}/images_cam0"))
         self.loaded_samples = 0
         self.last_id = 0

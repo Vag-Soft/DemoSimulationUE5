@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SocketPythonModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a061a1884a871c0271e9914ef7ef89fe977eb0e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7e57e83077ff1ce73082250886755e6b4ec622d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SocketPythonModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SocketPythonModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

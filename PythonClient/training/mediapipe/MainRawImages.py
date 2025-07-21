@@ -4,12 +4,11 @@ import cv2
 import open3d as o3d
 import time
 
-
-import PoseEstimation as pe
+from PythonClient.pose_estimation.mediapipe import mediapipe as pe
 import numpy as np
 
-from EnvRawImages import Env
-from simulation.ThreadedTCPClient import ThreadedTCPClient
+from PythonClient.envs.mediapipe.EnvRawImages import Env
+from PythonClient.simulation.ThreadedTCPClient import ThreadedTCPClient
 
 
 def main():
@@ -128,8 +127,8 @@ if __name__ == "__main__":
 
 
     #
-    # models_dir = f"models/A2C-{int(time.time())}"
-    # logdir = f"logs/A2C-{int(time.time())}"
+    # models_dir = f"../models/A2C-{int(time.time())}"
+    # logdir = f"../logs/A2C-{int(time.time())}"
     #
     # if not os.path.exists(models_dir):
     #     os.makedirs(models_dir)
