@@ -6,12 +6,15 @@ from typing import Optional
 import cv2
 import numpy as np
 
+from PythonClient.utils import transform_utils
+
+
 class FakeThreadedTCPClient:
     def __init__(self, cam_count: int = 1, mode = "train"):
         self.running = False
 
         self.mode = mode
-        self.data_path = "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/simulation/yolo/train_data_1people" if mode == "train" else "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/simulation/yolo/test_data_1people"
+        self.data_path = "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/simulation/yolo/train_data_2people" if mode == "train" else "E:/Vag/Programs/UnrealEngine/UE 5.5/DemoSimulationUE5/PythonClient/simulation/yolo/test_data_2people"
         self.sample_count = len(os.listdir(f"{self.data_path}/images_cam0"))
         self.loaded_samples = 0
         self.last_ids = [0] * cam_count
@@ -53,6 +56,7 @@ class FakeThreadedTCPClient:
             time.sleep(0.1)
 
         image = self.images[id][self.last_ids[id] % self.sample_count]
-        skeleton = self.skeletons[id][self.last_ids[id] % self.sample_count]
+        skeletons = self.skeletons[id][self.last_ids[id] % self.sample_count]
+
         self.last_ids[id] += 1
-        return image, skeleton
+        return image, skeletons

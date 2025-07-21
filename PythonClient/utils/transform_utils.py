@@ -99,6 +99,20 @@ def project_3D_to_2D_torch(joints_3d, camera_pos, camera_rot, fov_deg, width, he
 
     return projected
 
+def transform_world_to_camera(joints_3d, camera_pos, camera_rot):
+    R = euler_to_rotation_matrix(camera_rot).T
+    T = np.array(camera_pos).reshape(1, 1, 3)
+
+    joints_relative = joints_3d - T
+    joints_camera = np.einsum('ij,mnj->mni', R, joints_relative)
+
+    temp = joints_camera[..., 0].copy()
+    joints_camera[..., 0] = joints_camera[..., 1]
+    joints_camera[..., 1] = joints_camera[..., 2]
+    joints_camera[..., 2] = -temp
+
+    return joints_camera
+
 # if __name__ == '__main__':
 #     client = ThreadedTCPClient(cam_count=3)
 #     client.start()

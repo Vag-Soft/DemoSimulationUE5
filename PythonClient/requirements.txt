@@ -8,3 +8,10 @@ mediapipe~=0.10.13
 scipy~=1.15.2
 stable_baselines3~=2.6.0
 ultralytics~=8.3.160
+
+scipy
+opencv-python
+matplotlib
+torch
+torchvision
+open3d
